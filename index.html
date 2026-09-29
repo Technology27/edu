@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0f8f6f">
+
+<title>أكاديمية المهندس أحمد بُنَّه</title>
+
+<meta name="description" content="أكاديمية المهندس أحمد بُنَّه - كورسات كلية علوم الحاسب وكلية العلوم بجامعة الإمام عبدالرحمن بن فيصل">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --primary:#159473;
+    --primary2:#0b7057;
+    --primary-soft:#e9f8f3;
+    --bg:#f6faf8;
+    --card:#ffffff;
+    --text:#17211d;
+    --muted:#75827c;
+    --border:#dce9e4;
+    --shadow:0 15px 45px rgba(20,100,75,.08);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Tajawal',sans-serif;
+    background:
+        radial-gradient(circle at 100% 0,rgba(21,148,115,.13),transparent 25%),
+        radial-gradient(circle at 0 40%,rgba(24,95,165,.06),transparent 25%),
+        var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    transition:.3s;
+}
+
+body.dark{
+    --bg:#08110e;
+    --card:#101c18;
+    --text:#eef8f4;
+    --muted:#9aada5;
+    --border:#263a33;
+    --primary-soft:#112a21;
+    --shadow:0 15px 45px rgba(0,0,0,.3);
+}
+
+/* PROGRESS */
+
+#progress{
+    position:fixed;
+    top:0;
+    right:0;
+    height:4px;
+    width:0;
+    z-index:99999;
+    background:linear-gradient(90deg,#159473,#65dfb9);
+}
+
+/* NAV */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    padding:11px 18px;
+    background:rgba(255,255,255,.83);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(21,148,115,.1);
+}
+
+body.dark nav{
+    background:rgba(8,17,14,.85);
+}
+
+.nav-inner{
+    max-width:950px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    font-size:16px;
+    font-weight:900;
+}
+
+.logo-box{
+    width:39px;
+    height:39px;
+    display:grid;
+    place-items:center;
+    color:white;
+    border-radius:13px;
+    background:linear-gradient(135deg,#0b7057,#22b98c);
+    box-shadow:0 7px 18px rgba(21,148,115,.25);
+}
+
+.nav-actions{
+    display:flex;
+    gap:7px;
+}
+
+.icon-btn{
+    width:40px;
+    height:40px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+    cursor:pointer;
+    font-size:18px;
+    transition:.2s;
+}
+
+.icon-btn:hover{
+    transform:translateY(-2px);
+    border-color:var(--primary);
+}
+
+/* MAIN */
+
+.container{
+    width:100%;
+    max-width:780px;
+    margin:auto;
+    padding:32px 18px 80px;
+}
+
+/* HERO */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+    padding:35px 25px 30px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:30px;
+    box-shadow:var(--shadow);
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    top:-160px;
+    right:-100px;
+    border-radius:50%;
+    background:rgba(21,148,115,.14);
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    bottom:-120px;
+    left:-80px;
+    border-radius:50%;
+    background:rgba(24,95,165,.08);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.photo-wrap{
+    width:215px;
+    height:250px;
+    padding:5px;
+    margin:0 auto 20px;
+    border-radius:27px;
+    background:linear-gradient(145deg,#159473,#6de2bd);
+    box-shadow:0 18px 40px rgba(21,148,115,.22);
+}
+
+.photo-wrap img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:top;
+    display:block;
+    border-radius:22px;
+}
+
+.avatar{
+    width:100%;
+    height:100%;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    border-radius:22px;
+    background:#159473;
+    color:white;
+    font-size:42px;
+    font-weight:900;
+}
+
+.name{
+    font-size:30px;
+    font-weight:900;
+    margin-bottom:8px;
+}
+
+.tag{
+    display:inline-block;
+    padding:7px 18px;
+    border-radius:30px;
+    color:#0b7057;
+    background:var(--primary-soft);
+    font-size:13px;
+    font-weight:900;
+    margin-bottom:13px;
+}
+
+body.dark .tag{
+    color:#64dbb7;
+}
+
+.bio{
+    max-width:430px;
+    margin:auto;
+    font-size:15px;
+    line-height:1.9;
+    font-weight:600;
+    color:var(--muted);
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin:16px 0 25px;
+}
+
+.stat{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:15px 8px;
+    text-align:center;
+    box-shadow:var(--shadow);
+}
+
+.stat strong{
+    display:block;
+    color:var(--primary);
+    font-size:21px;
+    font-weight:900;
+}
+
+.stat span{
+    display:block;
+    color:var(--muted);
+    font-size:11px;
+    margin-top:3px;
+}
+
+/* SEARCH */
+
+.tools{
+    position:relative;
+    margin:25px 0 16px;
+}
+
+.search{
+    width:100%;
+    padding:16px 50px 16px 16px;
+    border:1px solid var(--border);
+    border-radius:17px;
+    outline:none;
+    background:var(--card);
+    color:var(--text);
+    font-family:'Tajawal';
+    font-size:14px;
+    box-shadow:var(--shadow);
+    transition:.2s;
+}
+
+.search:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 4px rgba(21,148,115,.09);
+}
+
+.search-icon{
+    position:absolute;
+    right:18px;
+    top:50%;
+    transform:translateY(-50%);
+    pointer-events:none;
+}
+
+/* FILTER */
+
+.filters{
+    display:flex;
+    gap:7px;
+    overflow-x:auto;
+    scrollbar-width:none;
+    margin-bottom:24px;
+    padding-bottom:3px;
+}
+
+.filters::-webkit-scrollbar{
+    display:none;
+}
+
+.filter-btn{
+    flex-shrink:0;
+    border:1px solid var(--border);
+    border-radius:30px;
+    padding:9px 15px;
+    background:var(--card);
+    color:var(--text);
+    font-family:'Tajawal';
+    font-weight:700;
+    cursor:pointer;
+}
+
+.filter-btn.active{
+    background:var(--primary);
+    border-color:var(--primary);
+    color:white;
+}
+
+/* SECTION */
+
+.section-label{
+    margin:28px 0 13px;
+    font-size:12px;
+    font-weight:900;
+    color:var(--muted);
+}
+
+.college-title{
+    padding:13px 16px;
+    margin-bottom:13px;
+    border-radius:14px;
+    font-size:19px;
+    font-weight:900;
+}
+
+.cs-title{
+    color:#0b7057;
+    background:#dff6ee;
+}
+
+.science-title{
+    color:#185FA5;
+    background:#e6f1fb;
+}
+
+/* LEVEL */
+
+.level{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:23px 0 10px;
+    color:var(--primary);
+    font-size:13px;
+    font-weight:900;
+}
+
+.level::after{
+    content:"";
+    height:1px;
+    background:var(--border);
+    flex:1;
+}
+
+.level span{
+    color:white;
+    background:linear-gradient(135deg,#159473,#0b7057);
+    border-radius:8px;
+    padding:5px 14px;
+}
+
+/* COURSE */
+
+.course{
+    position:relative;
+    display:block;
+    text-decoration:none;
+    color:var(--text);
+    background:var(--card);
+    border:1px solid var(--border);
+    border-right:4px solid var(--primary);
+    border-radius:16px;
+    padding:16px 17px;
+    margin-bottom:10px;
+    box-shadow:0 5px 18px rgba(20,100,75,.035);
+    transition:.2s;
+}
+
+.course:hover{
+    transform:translateY(-3px);
+    border-color:#8edbc3;
+    box-shadow:0 13px 28px rgba(21,148,115,.11);
+}
+
+.course-name{
+    font-size:15px;
+    line-height:1.6;
+    font-weight:800;
+}
+
+.demo{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    margin-top:5px;
+    color:var(--primary);
+    font-size:11px;
+    font-weight:700;
+}
+
+/* COURSE GROUP */
+
+.course-group{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-right:4px solid var(--primary);
+    border-radius:16px;
+    padding:16px;
+    margin-bottom:10px;
+}
+
+.group-title{
+    font-weight:900;
+    margin-bottom:11px;
+}
+
+.sub-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+}
+
+.sub-link{
+    display:block;
+    padding:10px 8px;
+    text-align:center;
+    text-decoration:none;
+    border:1px solid #9FE1CB;
+    border-radius:10px;
+    background:var(--primary-soft);
+    color:var(--primary2);
+    font-size:12px;
+    font-weight:800;
+    transition:.2s;
+}
+
+.sub-link:hover{
+    transform:translateY(-2px);
+    border-color:var(--primary);
+}
+
+.sub-link small{
+    display:block;
+    margin-top:4px;
+    color:var(--primary);
+}
+
+/* ELECTIVE */
+
+.elective{
+    background:linear-gradient(135deg,#14532d,#197346);
+    color:white;
+    text-align:center;
+    border-radius:13px;
+    padding:11px;
+    margin:25px 0 11px;
+    font-size:14px;
+    font-weight:900;
+}
+
+/* CONTACT */
+
+.contact{
+    margin-top:35px;
+}
+
+.contact-title{
+    text-align:center;
+    margin-bottom:14px;
+    font-weight:900;
+    font-size:18px;
+}
+
+.btn{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    width:100%;
+    border:0;
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:15px;
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:800;
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    filter:brightness(.97);
+}
+
+.wa{background:#25D366;}
+.tg{background:#229ED9;}
+.yt{background:#ff1b1b;}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    margin-top:35px;
+    padding-top:20px;
+    border-top:1px solid var(--border);
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.8;
+}
+
+/* TOP BUTTON */
+
+#topBtn{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+    width:48px;
+    height:48px;
+    border:0;
+    border-radius:15px;
+    background:var(--primary);
+    color:white;
+    font-size:21px;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(21,148,115,.28);
+    display:none;
+    z-index:900;
+}
+
+/* NO RESULTS */
+
+#noResults{
+    display:none;
+    padding:30px;
+    text-align:center;
+    color:var(--muted);
+}
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+    .container{
+        padding:22px 13px 70px;
+    }
+
+    .hero{
+        padding:28px 15px 25px;
+        border-radius:24px;
+    }
+
+    .photo-wrap{
+        width:185px;
+        height:220px;
+    }
+
+    .name{
+        font-size:25px;
+    }
+
+    .stats{
+        gap:7px;
+    }
+
+    .stat{
+        padding:13px 4px;
+    }
+
+    .stat strong{
+        font-size:18px;
+    }
+
+    .sub-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="progress"></div>
+
+<nav>
+    <div class="nav-inner">
+
+        <div class="logo">
+            <div class="logo-box">ب</div>
+            أكاديمية بُنَّه
+        </div>
+
+        <div class="nav-actions">
+            <button class="icon-btn" onclick="toggleDark()" id="darkBtn">🌙</button>
+        </div>
+
+    </div>
+</nav>
+
+<main class="container">
+
+<section class="hero">
+
+<div class="hero-content">
+
+    <div class="photo-wrap">
+
+        <img
+        src="photo.jpg"
+        alt="المهندس أحمد بُنَّه"
+        onerror="
+        this.style.display='none';
+        document.getElementById('avatar').style.display='flex';
+        "
+        >
+
+        <div class="avatar" id="avatar">
+            AB
+        </div>
+
+    </div>
+
+    <h1 class="name">مهندس/ أحمد بُنَّه</h1>
+
+    <span class="tag">مؤسس الأكاديمية</span>
+
+    <p class="bio">
+        الأكاديمية متخصصة في شرح مواد
+        <br>
+        كلية علوم الحاسب
+        <br>
+        جامعة الإمام عبدالرحمن بن فيصل
+    </p>
+
+</div>
+
+</section>
+
+
+<div class="stats">
+
+    <div class="stat">
+        <strong id="courseCount">0</strong>
+        <span>مادة وشرح</span>
+    </div>
+
+    <div class="stat">
+        <strong>8</strong>
+        <span>مستويات</span>
+    </div>
+
+    <div class="stat">
+        <strong>IAU</strong>
+        <span>جامعة الإمام</span>
+    </div>
+
+</div>
+
+
+<div class="tools">
+
+    <span class="search-icon">🔎</span>
+
+    <input
+    id="search"
+    class="search"
+    type="search"
+    placeholder="ابحث عن مادة... مثال: Programming"
+    autocomplete="off"
+    >
+
+</div>
+
+
+<div class="filters">
+
+    <button class="filter-btn active" data-filter="all">
+        جميع المواد
+    </button>
+
+    <button class="filter-btn" data-filter="1">
+        Level 1
+    </button>
+
+    <button class="filter-btn" data-filter="3">
+        Level 3
+    </button>
+
+    <button class="filter-btn" data-filter="5">
+        Level 5
+    </button>
+
+    <button class="filter-btn" data-filter="6">
+        Level 6
+    </button>
+
+    <button class="filter-btn" data-filter="7">
+        Level 7
+    </button>
+
+    <button class="filter-btn" data-filter="8">
+        Level 8
+    </button>
+
+    <button class="filter-btn" data-filter="elective">
+        اختياري
+    </button>
+
+</div>
+
+
+<p class="section-label">
+    الكورسات المتاحة في الأكاديمية
+</p>
+
+
+<div class="college-title cs-title">
+    💻 كلية علوم الحاسب
+</div>
+
+
+<!-- ===================== -->
+<!-- LEVEL 1 -->
+<!-- ===================== -->
+
+<div class="level level-heading" data-level="1">
+    <span>Level 1</span>
+</div>
+
+
+<a
+class="course searchable"
+data-level="1"
+href="https://drive.google.com/file/d/1GsIrgcMoQt_Q_BYYvRlgAGa4DmKcmCrd/view?usp=drive_link"
+target="_blank"
+rel="noopener">
+
+    <div class="course-name">
+        Fundamental of Programming - COMP 108
+    </div>
+
+    <div class="demo">
+        ▶️ الشرح التجريبي
+    </div>
+
+</a>
+
+
+<div class="course-group searchable" data-level="1">
+
+    <div class="group-title">
+        General Mathematics - Math 104
+    </div>
+
+    <div class="sub-grid">
+
+        <a
+        class="sub-link"
+        href="https://drive.google.com/file/d/1UigPsdrI-9ZVuwBvf5xYHWMT4EdkF2q3/view?usp=drive_link"
+        target="_blank">
+
+            Section 1.1
+
+            <small>
+                ▶️ الشرح التجريبي
+            </small>
+
+        </a>
+
+
+        <a
+        class="sub-link"
+        href="https://drive.google.com/file/d/1sKE1dDA6cT2irz4uHQ3BX4CwzgnDLOTu/view?usp=sharing"
+        target="_blank">
+
+            Worksheet 1.1
+
+            <small>
+                ▶️ الشرح التجريبي
+            </small>
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- ===================== -->
+<!-- LEVEL 3 -->
+<!-- ===================== -->
+
+<div class="level level-heading" data-level="3">
+    <span>Level 3</span>
+</div>
+
+
+<a
+class="course searchable"
+data-level="3"
+href="https://drive.google.com/file/d/1PEDHh8EciXblPYWeo0H-AoWplHeVqpnN/view?usp=sharing"
+target="_blank">
+
+<div class="course-name">
+Fundamentals of Communications and Networks
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<a
+class="course searchable"
+data-level="3"
+href="https://drive.google.com/file/d/1iglngiWI964c4aFZlpCNZ0WB1xzQ_k6Q/view?usp=sharing"
+target="_blank">
+
+<div class="course-name">
+Intro to Statistics and Probability Theory
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<a
+class="course searchable"
+data-level="3"
+href="https://drive.google.com/drive/folders/1J7-bI_AwT45_81OtSimCJ2n9ms8ODZmM?usp=sharing"
+target="_blank">
+
+<div class="course-name">
+Object Oriented Programming 1 - CSC 231
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<a
+class="course searchable"
+data-level="3"
+href="https://drive.google.com/drive/folders/1xdpbKehiSod_Tuo-vZLgutosfDyN0ssg?usp=drive_link"
+target="_blank">
+
+<div class="course-name">
+Physics 205
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<!-- ===================== -->
+<!-- LEVEL 5 -->
+<!-- ===================== -->
+
+<div class="level level-heading" data-level="5">
+<span>Level 5</span>
+</div>
+
+
+<a
+class="course searchable"
+data-level="5"
+href="https://drive.google.com/drive/folders/1XplG6JyftIUXqDn-6QGfvpdF0aIQQ4aD?usp=drive_link"
+target="_blank">
+
+<div class="course-name">
+Operating Systems
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<div class="course-group searchable" data-level="5">
+
+<div class="group-title">
+Computer Organization and Design
+</div>
+
+<div class="sub-grid">
+
+<a
+class="sub-link"
+href="https://drive.google.com/drive/folders/1YJKaoQdXK8D-lu5kvPxDMOtGVG1UjC-F?usp=drive_link"
+target="_blank">
+
+فرع الراكة
+<small>▶️ الشرح التجريبي</small>
+
+</a>
+
+
+<a
+class="sub-link"
+href="https://drive.google.com/drive/folders/1-OTjKoPWVWLoibqaRbwwyVcgaAQVth7b?usp=drive_link"
+target="_blank">
+
+فرع الجبيل
+<small>▶️ الشرح التجريبي</small>
+
+</a>
+
+</div>
+
+<div style="margin-top:8px">
+
+<a
+class="sub-link"
+href="https://drive.google.com/drive/folders/1jlOMHg89xV_kKVOktPYyUlGPrz_qWD7X?usp=drive_link"
+target="_blank">
+
+Lab 1 (الراكة والجبيل)
+
+<small>
+▶️ الشرح التجريبي
+</small>
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="course-group searchable" data-level="5">
+
+<div class="group-title">
+Linear Algebra
+</div>
+
+<div style="font-size:12px;color:var(--primary);font-weight:800;margin-bottom:7px">
+فرع الراكة
+</div>
+
+<div class="sub-grid">
+
+<a
+class="sub-link"
+href="https://drive.google.com/file/d/15-Y4VoQ2OZz5rEKE74RdHY6A7df54exY/view?usp=drive_link"
+target="_blank">
+
+Lecture 1
+<small>▶️ الشرح التجريبي</small>
+
+</a>
+
+<a
+class="sub-link"
+href="https://drive.google.com/file/d/18jIat4IKtow-PkL_8HHulLSDKf8lEp7n/view?usp=drive_link"
+target="_blank">
+
+Lecture 2
+<small>▶️ الشرح التجريبي</small>
+
+</a>
+
+</div>
+
+
+<div style="font-size:12px;color:var(--primary);font-weight:800;margin:12px 0 7px">
+فرع الجبيل
+</div>
+
+<a
+class="sub-link"
+href="https://drive.google.com/file/d/18_mDQwPhTWDGZ0L5tC7jHeEJBrPmZRF5/view?usp=drive_link"
+target="_blank">
+
+▶️ الشرح التجريبي
+
+</a>
+
+</div>
+
+
+<a
+class="course searchable"
+data-level="5"
+href="https://drive.google.com/file/d/1pVTO6wIdelRVVkeGnAMLASM7AJHNFCc5/view?usp=sharing"
+target="_blank">
+
+<div class="course-name">
+Mathematics Foundation for Cybersecurity
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<div class="course-group searchable" data-level="5">
+
+<div class="group-title">
+Programming for Cybersecurity (CYS 305)
+</div>
+
+<div class="sub-grid">
+
+<a
+class="sub-link"
+href="https://drive.google.com/file/d/1FqXaDlGPCEdfy4ZCWyabZYGkfVpQeKN8/view?usp=sharing"
+target="_blank">
+
+Lecture 1
+<small>▶️ الشرح التجريبي</small>
+
+</a>
+
+<a
+class="sub-link"
+href="https://drive.google.com/drive/folders/1mMQ4e7UGImsh-S8tWYCu1FKtVAOuwOtt?usp=drive_link"
+target="_blank">
+
+Lecture 2
+<small>▶️ الشرح التجريبي</small>
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="course-group searchable" data-level="5">
+
+<div class="group-title">
+ARTI-303 (Programming)
+</div>
+
+<div class="sub-grid">
+
+<a
+class="sub-link"
+href="https://drive.google.com/file/d/1ciWeLizLfoFljkE-btHlIqcregIiBTRz/view?usp=sharing"
+target="_blank">
+
+Lecture 1
+<small>▶️ الشرح التجريبي</small>
+
+</a>
+
+<a
+class="sub-link"
+href="https://drive.google.com/file/d/1JC731UsZw5C09_BKcDdUd9rraogsh3M1/view?usp=sharing"
+target="_blank">
+
+Lecture 2
+<small>▶️ الشرح التجريبي</small>
+
+</a>
+
+</div>
+
+</div>
+
+
+<a
+class="course searchable"
+data-level="5"
+href="https://drive.google.com/file/d/1CF8W2Oy32mv07y_JzFTi_rhWKY4GDLr9/view?usp=sharing"
+target="_blank">
+
+<div class="course-name">
+Logic and Proof
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<!-- ===================== -->
+<!-- LEVEL 6 -->
+<!-- ===================== -->
+
+<div class="level level-heading" data-level="6">
+<span>Level 6</span>
+</div>
+
+
+<a
+class="course searchable"
+data-level="6"
+href="https://drive.google.com/file/d/1gbuj2cjnjXLbp4zD3Rskn03wNPxlsH_K/view?usp=drive_link"
+target="_blank">
+
+<div class="course-name">
+Algorithm Analysis and Design
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<a
+class="course searchable"
+data-level="6"
+href="https://drive.google.com/file/d/1Cf8TiA4c-6koJqlMy6BfCdvQItWGsbwy/view?usp=sharing"
+target="_blank">
+
+<div class="course-name">
+Web Based Systems
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<a
+class="course searchable"
+data-level="6"
+href="https://drive.google.com/file/d/1e0jd-ooRUzH4BDn1VDb7nG_jJEKPrToe/view?usp=sharing"
+target="_blank">
+
+<div class="course-name">
+Mathematics Foundation for AI
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<!-- ===================== -->
+<!-- LEVEL 7 -->
+<!-- ===================== -->
+
+<div class="level level-heading" data-level="7">
+<span>Level 7</span>
+</div>
+
+
+<a
+class="course searchable"
+data-level="7"
+href="https://drive.google.com/file/d/16oFo1JQiFgsjK4Z5XsoXdcKrHCB_XDoy/view?usp=sharing"
+target="_blank">
+
+<div class="course-name">
+Image Processing
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<a
+class="course searchable"
+data-level="7"
+href="https://drive.google.com/file/d/1tDHEoGwWdtSGR-8UxwVNkYa1WA0xnDsj/view?usp=sharing"
+target="_blank">
+
+<div class="course-name">
+Deep Learning
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<a
+class="course searchable"
+data-level="7"
+href="https://drive.google.com/drive/folders/12IyhgH6fvfT8ZhZ_akWzHYnVs3R-fJGV?usp=drive_link"
+target="_blank">
+
+<div class="course-name">
+(Automata) Language Theory
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<!-- ===================== -->
+<!-- LEVEL 8 -->
+<!-- ===================== -->
+
+<div class="level level-heading" data-level="8">
+<span>Level 8</span>
+</div>
+
+
+<a
+class="course searchable"
+data-level="8"
+href="https://drive.google.com/drive/folders/1D-CDHWAYnG5Np26gXzcQd6hhw_SRUu4L?usp=sharing"
+target="_blank">
+
+<div class="course-name">
+Parallel Computer Architecture
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<!-- ===================== -->
+<!-- ELECTIVE -->
+<!-- ===================== -->
+
+<div class="elective level-heading" data-level="elective">
+مواد اختيارية — Elective
+</div>
+
+
+<a
+class="course searchable"
+data-level="elective"
+href="https://drive.google.com/file/d/1rYo0CimpYHhpBkx3lYukDKBTBnyELr_C/view?usp=drive_link"
+target="_blank">
+
+<div class="course-name">
+Web Technology and Security (CYS 538)
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<a
+class="course searchable"
+data-level="elective"
+href="https://drive.google.com/file/d/1m5PjJ-Gli7CFbUqb93zULPKpu-eS2N9N/view?usp=sharing"
+target="_blank">
+
+<div class="course-name">
+Data Mining
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<a
+class="course searchable"
+data-level="elective"
+href="https://drive.google.com/file/d/1CuUHtY1PdOkeBheTCqiSgcEDYg4pBKdV/view?usp=drive_link"
+target="_blank">
+
+<div class="course-name">
+Quantum Computation and Quantum Security
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<a
+class="course searchable"
+data-level="elective"
+href="https://drive.google.com/file/d/1z7cvZD4wdFyG_DUjsvtQjreBFEVhBa8s/view?usp=sharing"
+target="_blank">
+
+<div class="course-name">
+Advanced Programming Languages (CS 516)
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<div class="course-group searchable" data-level="elective">
+
+<div class="group-title">
+Numerical Analysis
+</div>
+
+<div class="sub-grid">
+
+<a
+class="sub-link"
+href="https://drive.google.com/file/d/1_4sgchC1I4HY7GX3orpjZJ2klMwOZg7K/view?usp=drive_link"
+target="_blank">
+
+فرع الراكة
+<small>▶️ الشرح التجريبي</small>
+
+</a>
+
+
+<a
+class="sub-link"
+href="https://drive.google.com/file/d/1YBWJiS93GufpqYfJvQfi58PyVJ-SAW0k/view?usp=drive_link"
+target="_blank">
+
+فرع الجبيل
+<small>▶️ الشرح التجريبي</small>
+
+</a>
+
+</div>
+
+</div>
+
+
+<!-- ===================== -->
+<!-- SCIENCE -->
+<!-- ===================== -->
+
+<div class="college-title science-title" style="margin-top:30px">
+🔬 كلية العلوم
+</div>
+
+
+<a
+class="course searchable"
+data-level="science"
+href="https://drive.google.com/file/d/1fDAqZBUb_c_26v9eEGMmYTOWWkA6uvO2/view?usp=sharing"
+target="_blank">
+
+<div class="course-name">
+Calc 2
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<a
+class="course searchable"
+data-level="science"
+href="https://drive.google.com/file/d/1l3Gt4kiOYQhXDuf0_Oxz-GIKpIgSbq6y/view?usp=sharing"
+target="_blank">
+
+<div class="course-name">
+Electricity and Magnetism
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<a
+class="course searchable"
+data-level="science"
+href="https://drive.google.com/file/d/1j1j0F8aiDETIm12vvUPWfNs80OUhM_Fm/view"
+target="_blank">
+
+<div class="course-name">
+Electric Circuits 1
+</div>
+
+<div class="demo">
+▶️ الشرح التجريبي
+</div>
+
+</a>
+
+
+<div id="noResults">
+    🔍
+    <br><br>
+    لم يتم العثور على مادة بهذا الاسم
+</div>
+
+
+<!-- ===================== -->
+<!-- CONTACT -->
+<!-- ===================== -->
+
+<section class="contact">
+
+<div class="contact-title">
+للاستفسار والاشتراك
+</div>
+
+
+<a
+class="btn wa"
+href="https://wa.me/201016717380"
+target="_blank"
+rel="noopener">
+
+💬 واتساب
+
+</a>
+
+
+<a
+class="btn tg"
+href="https://t.me/Ahmedbonnh_99"
+target="_blank"
+rel="noopener">
+
+✈️ تيليجرام
+
+</a>
+
+
+<a
+class="btn yt"
+href="https://www.youtube.com/@ahmed_bonnah"
+target="_blank"
+rel="noopener">
+
+▶️ يوتيوب
+
+</a>
+
+</section>
+
+
+<footer>
+
+<strong>
+أكاديمية المهندس أحمد بُنَّه
+</strong>
+
+<br>
+
+شرح مواد كلية علوم الحاسب وكلية العلوم
+
+<br>
+
+جامعة الإمام عبدالرحمن بن فيصل
+
+<br><br>
+
+© <span id="year"></span> جميع الحقوق محفوظة
+
+</footer>
+
+</main>
+
+
+<button id="topBtn" onclick="goTop()">
+↑
+</button>
+
+
+<script>
+
+/* ===============================
+   DARK MODE
+================================ */
+
+function toggleDark(){
+
+    document.body.classList.toggle("dark");
+
+    const dark =
+    document.body.classList.contains("dark");
+
+    localStorage.setItem(
+        "darkMode",
+        dark ? "1" : "0"
+    );
+
+    document.getElementById("darkBtn").textContent =
+        dark ? "☀️" : "🌙";
+}
+
+
+if(localStorage.getItem("darkMode") === "1"){
+
+    document.body.classList.add("dark");
+
+    document.getElementById("darkBtn").textContent =
+        "☀️";
+}
+
+
+/* ===============================
+   SEARCH + FILTER
+================================ */
+
+const search =
+document.getElementById("search");
+
+const courses =
+document.querySelectorAll(".searchable");
+
+const filterButtons =
+document.querySelectorAll(".filter-btn");
+
+let currentFilter = "all";
+
+
+function updateCourses(){
+
+    const query =
+    search.value
+    .toLowerCase()
+    .trim();
+
+    let visible = 0;
+
+
+    courses.forEach(course => {
+
+        const text =
+        course.textContent.toLowerCase();
+
+        const level =
+        course.dataset.level;
+
+        const matchesSearch =
+        text.includes(query);
+
+        const matchesFilter =
+        currentFilter === "all" ||
+        level === currentFilter;
+
+
+        if(matchesSearch && matchesFilter){
+
+            course.style.display = "";
+            visible++;
+
+        }else{
+
+            course.style.display = "none";
+
+        }
+
+    });
+
+
+    document.getElementById("noResults").style.display =
+        visible === 0
+        ? "block"
+        : "none";
+
+
+    /* إخفاء عناوين المستويات الفارغة */
+
+    document
+    .querySelectorAll(".level-heading")
+    .forEach(heading => {
+
+        const level =
+        heading.dataset.level;
+
+        if(
+            currentFilter !== "all" &&
+            currentFilter !== level
+        ){
+
+            heading.style.display = "none";
+            return;
+        }
+
+
+        const hasVisible =
+        [...courses].some(course =>
+
+            course.dataset.level === level &&
+            course.style.display !== "none"
+
+        );
+
+
+        heading.style.display =
+            hasVisible
+            ? ""
+            : "none";
+
+    });
+
+}
+
+
+search.addEventListener(
+    "input",
+    updateCourses
+);
+
+
+filterButtons.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        function(){
+
+            filterButtons.forEach(btn =>
+                btn.classList.remove("active")
+            );
+
+            this.classList.add("active");
+
+            currentFilter =
+            this.dataset.filter;
+
+            updateCourses();
+
+        }
+    );
+
+});
+
+
+/* ===============================
+   COURSE COUNT
+================================ */
+
+document.getElementById("courseCount").textContent =
+document.querySelectorAll(".searchable").length;
+
+
+/* ===============================
+   SCROLL PROGRESS
+================================ */
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        const scrollTop =
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+
+        const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+        const percentage =
+        height > 0
+        ? (scrollTop / height) * 100
+        : 0;
+
+        document.getElementById("progress").style.width =
+        percentage + "%";
+
+
+        document.getElementById("topBtn").style.display =
+        scrollTop > 500
+        ? "block"
+        : "none";
+
+    }
+);
+
+
+/* ===============================
+   GO TOP
+================================ */
+
+function goTop(){
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ===============================
+   YEAR
+================================ */
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+
+/* ===============================
+   FIREBASE VISIT TRACKER
+================================ */
+
+const DB_URL =
+"https://ahmed-bonnh-visits-default-rtdb.firebaseio.com";
+
+
+async function recordVisit(){
+
+    try{
+
+        const today =
+        new Date()
+        .toISOString()
+        .split("T")[0];
+
+        const id =
+        Date.now() +
+        "-" +
+        Math.random()
+        .toString(36)
+        .substring(2,8);
+
+
+        await fetch(
+            `${DB_URL}/stats/total/${id}.json`,
+            {
+                method:"PUT",
+                headers:{
+                    "Content-Type":
+                    "application/json"
+                },
+                body:JSON.stringify(true)
+            }
+        );
+
+
+        await fetch(
+            `${DB_URL}/stats/daily/${today}/${id}.json`,
+            {
+                method:"PUT",
+                headers:{
+                    "Content-Type":
+                    "application/json"
+                },
+                body:JSON.stringify(true)
+            }
+        );
+
+    }catch(error){
+
+        /* لا نظهر خطأ للزائر */
+
+    }
+
+}
+
+
+recordVisit();
+
+</script>
+
+</body>
+</html>
